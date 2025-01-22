@@ -18,7 +18,9 @@ async def check_products_job(session: AsyncSession):
     )
 
     for product in products:
-        schemas_product = await service.get_product_data(articul=product.articul)
+        schemas_product = await service.get_product_data(
+            articul=product.articul,
+        )
         await crud.update_product(
             product=product,
             session=session,
